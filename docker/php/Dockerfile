@@ -6,7 +6,8 @@ RUN apt-get update && apt-get install -y \
     libpq-dev \
     zip \
     unzip \
-    git
+    git \
+    && rm -rf /var/lib/apt/lists/*
 
 RUN docker-php-ext-install pdo pdo_pgsql
 
