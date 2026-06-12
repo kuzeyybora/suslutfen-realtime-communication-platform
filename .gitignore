@@ -10,3 +10,8 @@
 ###< symfony/framework-bundle ###
 .idea
 *:Zone.Identifier
+
+###> lexik/jwt-authentication-bundle ###
+/config/jwt/*.pem
+###< lexik/jwt-authentication-bundle ###
+/compose.override.yaml
