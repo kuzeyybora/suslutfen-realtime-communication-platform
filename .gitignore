@@ -15,3 +15,8 @@
 /config/jwt/*.pem
 ###< lexik/jwt-authentication-bundle ###
 /compose.override.yaml
+
+# Frontend
+/frontend/node_modules/
+/frontend/dist/
+/frontend/.env
