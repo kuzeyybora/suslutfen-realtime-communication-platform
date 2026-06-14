@@ -20,7 +20,9 @@ client.interceptors.response.use(
     const status = error.response?.status;
     const message = error.response?.data?.error?.message ?? 'Bir hata oluştu.';
 
-    if (status === 401) {
+    const isLoginEndpoint = error.config?.url?.includes('/login');
+
+    if (status === 401 && !isLoginEndpoint) {
       const refreshToken = localStorage.getItem('refresh_token');
       if (refreshToken && !error.config._retry) {
         error.config._retry = true;
@@ -43,7 +45,7 @@ client.interceptors.response.use(
         localStorage.removeItem('refresh_token');
         window.location.href = '/login';
       }
-    } else if (status !== 422) {
+    } else if (status !== 422 && status !== 401) {
       toast.error(message);
     }
 
